@@ -1,10 +1,16 @@
 // with (2n+1)
+//   *
+//  ***
+// *****
+//*******
+// *****
+//  ***
+//   *
 
 
 public class Main
 {
 	public static void main(String[] args) {
-
 
 		int input = 3;
 		
