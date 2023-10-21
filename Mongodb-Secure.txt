@@ -1,0 +1,17 @@
+echo 'security:\n  authorization: enabled' | sudo tee -a /etc/mongod.conf
+
+mongo
+use admin
+db.createUser({user: "adminUser", pwd: "adminPassword", roles: [{ role: "root", db: "admin" }])
+
+
+
+echo 'net:\n  bindIp: 127.0.0.1,192.168.1.100' | sudo tee -a /etc/mongod.conf
+
+
+sudo ufw allow 27017/tcp
+
+
+echo 'auditLog:\n  destination: file\n  path: /var/log/mongod/mongod-audit.log' | sudo tee -a /etc/mongod.conf
+
+sudo service mongodb restart
